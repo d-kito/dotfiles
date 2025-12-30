@@ -1,0 +1,98 @@
+{
+    "layer": "top",
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["user"],
+    "modules-right": ["mpris#player","custom/bar","pulseaudio#audio","pulseaudio/slider", "custom/bar2" , "clock#date", "custom/dots", "clock#time", "custom/bar", "custom/distro"],
+
+    "custom/distro": {
+	"format": " ",
+	"tooltip": false,
+	"on-click": "~/.config/hypr/eww-manager.sh",
+    },
+
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"tooltip": false,
+		"ignore-workspaces": ["27","28","29","30"],
+		"persistent-workspaces" : {
+			"*" : 10, 
+		},
+		"format-icons": {
+			"active":  "",
+			"default": "",
+			"urgent":  "",
+			"visible": "",
+			"empty":   ""
+		},
+	},
+
+	"user": {
+		"format": "dak",
+		"tooltip": false,
+		"open-on-click": false,
+	},
+
+
+	"hyprland/window": {
+	"format": "{title}",
+	"tooltip": false,
+	},
+
+	"clock#date": {
+		"format": "{:%a %d %b}",
+		"timezone": "UTC",
+		"tooltip": false,
+	},
+
+	"clock#time": {
+		"format": "{:%H:%M}",
+		"timezone": "UTC",
+		"tooltip":false,
+	},
+
+	"custom/dots": {
+		"format": "",
+		"tooltip":false,
+	},
+
+
+    "mpris#player": {
+	"ignored-players": ["firefox"],
+	"format": "{player_icon}  : {title}",
+	"player-icons": {
+	    "chromium": " ",
+	},
+	"tooltip" : false,
+    },
+
+	"pulseaudio#audio": {
+      "format": "{icon}",
+      "format-bluetooth-muted": "",
+      "format-muted": "",
+      "format-icons": {
+	 "headphone": "",
+	 "default": ""
+      },
+      "on-click" : "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+      "on-scroll-up" : "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ -l 1",
+      "on-scroll-down" : "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+      "tooltip": false
+    },
+
+
+    "pulseaudio/slider": {
+      "min": 0,
+      "max": 100,
+      "orientation": "horizontal"
+    },
+	
+	"custom/bar": {
+		"format": "|",
+		"tooltip": false,
+	},
+	
+	"custom/bar2": {
+		"format": "|",
+		"tooltip": false,
+	}
+}
